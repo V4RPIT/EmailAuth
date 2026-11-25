@@ -1,4 +1,4 @@
-"""FastAPI web dashboard and REST API for the Secure Email Authentication Gateway.
+"""FastAPI web dashboard and REST API for EmailAuth - a Secure Email Authentication Gateway with SPF, DKIM, and DMARC1.
 
 Provides:
 - Interactive dark-mode Security Operations Center (SOC) Web UI at `GET /`
@@ -34,7 +34,7 @@ from email_auth_gateway.src.header_parser import analyze_raw_email  # noqa: E402
 
 
 app = FastAPI(
-    title="Secure Email Authentication Gateway (SPF / DKIM / DMARC)",
+    title="EmailAuth - a Secure Email Authentication Gateway with SPF, DKIM, and DMARC1",
     description="Analyze raw email headers, inspect DNS authentication records, sign outbound mail, and manage DMARC policy rollout.",
     version="1.0.0",
 )
@@ -152,7 +152,7 @@ _DASHBOARD_HTML = """<!DOCTYPE html>
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Secure Email Authentication Gateway | SPF · DKIM · DMARC</title>
+  <title>EmailAuth - a Secure Email Authentication Gateway with SPF, DKIM, and DMARC1</title>
   <style>
     :root {
       --bg: #0b1020;
@@ -257,7 +257,7 @@ _DASHBOARD_HTML = """<!DOCTYPE html>
 <body>
   <header>
     <div>
-      <h1>Secure Email Authentication Gateway</h1>
+      <h1>EmailAuth - a Secure Email Authentication Gateway with SPF, DKIM, and DMARC1</h1>
       <div class="subtitle">SPF (RFC 7208) · DKIM (RFC 6376) · DMARC (RFC 7489) · Header Forensics</div>
     </div>
     <div id="dmarcStatusBadge" class="pill neutral">Loading policy...</div>
@@ -404,7 +404,7 @@ _DASHBOARD_HTML = """<!DOCTYPE html>
           sender: 'notifications@securemail.example',
           recipient: 'auditor@partner.example',
           subject: 'Live DKIM-Signed Verification Test',
-          body: 'Signed dynamically using 2048-bit RSA-SHA256 in the Email Auth Gateway.'
+          body: 'Signed dynamically using 2048-bit RSA-SHA256 in EmailAuth - a Secure Email Authentication Gateway with SPF, DKIM, and DMARC1.'
         })
       });
       const data = await res.json();

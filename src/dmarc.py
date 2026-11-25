@@ -387,7 +387,7 @@ class DMARCLifecycleManager:
             '<?xml version="1.0" encoding="UTF-8" ?>\n'
             "<feedback>\n"
             "  <report_metadata>\n"
-            "    <org_name>Secure Email Authentication Gateway</org_name>\n"
+            "    <org_name>EmailAuth - a Secure Email Authentication Gateway with SPF, DKIM, and DMARC1</org_name>\n"
             f"    <email>{xml_escape(self.rua or 'postmaster@' + self.domain)}</email>\n"
             f"    <report_id>{xml_escape(report_id)}</report_id>\n"
             f"    <date_range><begin>{now_ts - 86400}</begin><end>{now_ts}</end></date_range>\n"

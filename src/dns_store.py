@@ -64,7 +64,7 @@ class DNSZoneStore:
         target = path or self.zone_path or DNS_ZONE_PATH
         target.parent.mkdir(parents=True, exist_ok=True)
         payload = {
-            "description": "Controlled Authoritative DNS Zone Store for Secure Email Authentication Gateway",
+            "description": "Controlled Authoritative DNS Zone Store for EmailAuth - a Secure Email Authentication Gateway with SPF, DKIM, and DMARC1",
             "records": self.records,
         }
         target.write_text(json.dumps(payload, indent=2), encoding="utf-8")

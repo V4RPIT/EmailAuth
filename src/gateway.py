@@ -1,4 +1,4 @@
-"""End-to-end Secure Email Authentication Gateway orchestrator."""
+"""End-to-end EmailAuth - a Secure Email Authentication Gateway with SPF, DKIM, and DMARC1 orchestrator."""
 
 from __future__ import annotations
 

@@ -3,21 +3,21 @@ Authentication-Results: mx-gw.securemail.example;
 	dkim=pass header.d=securemail.example header.s=selector1;
 	dmarc=pass (p=reject dis=accept) header.from=securemail.example
 Received-SPF: pass (mx-gw.securemail.example: Sender IP 198.51.100.10 authorized by ip4:198.51.100.10.) client-ip=198.51.100.10; envelope-from=notifications@securemail.example;
-Received: from mx-gw.securemail.example ([198.51.100.10]) by mx-gw.securemail.example with ESMTP; Wed, 25 Nov 2026 13:56:59 +0000
+Received: from mx-gw.securemail.example ([198.51.100.10]) by mx-gw.securemail.example with ESMTP; Wed, 25 Nov 2026 14:37:24 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=securemail.example;
 	s=selector1; h=from:to:subject:date:message-id:mime-version:content-type;
-	bh=YjoiSl/VWi/pTCiQa0vAFRniwfJM+S/zGRLeJ8CsM1E=; b=LgHKuu3GozKugtehr3o3MhB+lakOqb2mdVxHqYqwX0034yT54jl/zeJ+pEl2gEnJ
-	 wiVDbv2s5zNX5ftAg5/qS1T5Ht/OJiWSGxAMU0dKlEEVb/v0TGEy0oCz9M0y5kEi
-	 cQjRw4AULCKNny4sQPwfXOQrKiM73xDLfrV/HnvYUj+zI7fPQW4o0FxX4l414dBC
-	 Dpre5ihB5IlmBOS6tUA5FnFEfufvQDWmyLhH3/sfGyE1oPzO41nZFwYWPT2D8FSV
-	 HBswnsyrCLIjmqSa3668kAYeaWmGWCB4xLBg5JF/1a1e3+9A2blg51HU8TrlTogH
-	 Zd+ESr+yVyMsODgs4PSEHg==
+	bh=YjoiSl/VWi/pTCiQa0vAFRniwfJM+S/zGRLeJ8CsM1E=; b=bs3Vl6VgelSvbZVijI9TcjCXp/FElc+9T7Yyk9CLfB2Tbq7vX1uxeafQPevWidE8
+	 UrfLhJYTE7l+Hytjvc581JAMM58DJkvBSF8JFbav3dSaVQag714rZU3jEMNQ9VKv
+	 pUAybNWHOaryzPMw1h+C4xgEr36G7Xjm5mhBe47vzfmi4Yzi9sp2A+HcDq51PPkY
+	 9w2dz31rXaUEtizxbOyXsxg1pTuwC5m9akJOyJEhELcISgiVu/3U31tpf+vBxF05
+	 Z5ngLvnzPVDef+Kpc4oRYS5ThvlC9zuR1jRixNSqKvRgxYb8Ioi1q/nZhbReexCN
+	 MRHRkG96ul3jxZgXqK09WA==
 Return-Path: <notifications@securemail.example>
 From: notifications@securemail.example
 To: alice@partner.example
 Subject: Q4 Security Briefing
-Date: Wed, 25 Nov 2026 13:56:59 GMT
-Message-ID: <179561501955.7492.7463833351581161229@securemail.example>
+Date: Wed, 25 Nov 2026 14:37:24 GMT
+Message-ID: <179561744430.4132.2315715586667448826@securemail.example>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 

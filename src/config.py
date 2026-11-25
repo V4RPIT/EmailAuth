@@ -1,4 +1,4 @@
-"""Configuration defaults and path constants for the Secure Email Authentication Gateway."""
+"""Configuration defaults and path constants for EmailAuth - a Secure Email Authentication Gateway with SPF, DKIM, and DMARC1."""
 
 from dataclasses import dataclass, field
 from pathlib import Path

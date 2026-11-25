@@ -3,7 +3,7 @@ Authentication-Results: mx-gw.securemail.example;
 	dkim=none;
 	dmarc=fail (p=reject dis=reject) header.from=securemail.example
 Received-SPF: pass (mx-gw.securemail.example: Sender IP 192.0.2.55 authorized by ip4:192.0.2.55.) client-ip=192.0.2.55; envelope-from=bounce@relay-mailer.example;
-Received: from relay-mailer.example ([192.0.2.55]) by mx-gw.securemail.example with ESMTP; Wed, 25 Nov 2026 13:56:59 +0000
+Received: from relay-mailer.example ([192.0.2.55]) by mx-gw.securemail.example with ESMTP; Wed, 25 Nov 2026 14:37:24 +0000
 Return-Path: <bounce@relay-mailer.example>
 From: "IT Security (securemail.example)" <security@securemail.example>
 Reply-To: attacker@evil-harvest.example

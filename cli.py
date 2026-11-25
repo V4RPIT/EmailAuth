@@ -1,4 +1,4 @@
-"""Command-line interface for the Secure Email Authentication Gateway.
+"""Command-line interface for EmailAuth - a Secure Email Authentication Gateway with SPF, DKIM, and DMARC1.
 
 Supports:
 - `setup`   : Generate RSA-2048 DKIM keys and publish SPF, DKIM, and DMARC (p=none) DNS records
@@ -95,7 +95,7 @@ def cmd_analyze(args: argparse.Namespace) -> int:
         print(json.dumps(analysis.to_dict(), indent=2))
     else:
         print("=" * 72)
-        print("SECURE EMAIL AUTHENTICATION HEADER ANALYSIS")
+        print("EMAILAUTH - A SECURE EMAIL AUTHENTICATION GATEWAY WITH SPF, DKIM, AND DMARC1")
         print("=" * 72)
         print(analysis.summary_text)
         if analysis.received_hops:
@@ -309,7 +309,7 @@ def cmd_demo(args: argparse.Namespace) -> int:
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
-        description="Secure Email Authentication Gateway CLI (SPF / DKIM / DMARC)"
+        description="EmailAuth - a Secure Email Authentication Gateway with SPF, DKIM, and DMARC1"
     )
     sub = parser.add_subparsers(dest="command", required=True)
 

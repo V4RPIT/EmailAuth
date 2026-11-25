@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <feedback>
   <report_metadata>
-    <org_name>Secure Email Authentication Gateway</org_name>
+    <org_name>EmailAuth - a Secure Email Authentication Gateway with SPF, DKIM, and DMARC1</org_name>
     <email>mailto:dmarc-reports@securemail.example</email>
     <report_id>monitoring-phase-001</report_id>
-    <date_range><begin>1795528619</begin><end>1795615019</end></date_range>
+    <date_range><begin>1795531044</begin><end>1795617444</end></date_range>
   </report_metadata>
   <policy_published>
     <domain>securemail.example</domain>

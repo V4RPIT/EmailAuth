@@ -1,5 +1,5 @@
 {
-  "description": "Controlled Authoritative DNS Zone Store for Secure Email Authentication Gateway",
+  "description": "Controlled Authoritative DNS Zone Store for EmailAuth - a Secure Email Authentication Gateway with SPF, DKIM, and DMARC1",
   "records": {
     "securemail.example": {
       "TXT": [

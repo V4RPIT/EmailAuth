@@ -1,6 +1,6 @@
-# Secure Email Authentication Gateway (SPF, DKIM & DMARC)
+# EmailAuth - a Secure Email Authentication Gateway with SPF, DKIM, and DMARC1
 
-A complete, standards-compliant **Secure Email Authentication Gateway**, **Raw Header Forensic Analyzer (Web UI + CLI)**, and **Controlled Authoritative DNS Zone Environment** implementing **SPF (RFC 7208)**, **DKIM (RFC 6376)**, **DMARC (RFC 7489)**, and **Authentication-Results (RFC 8601)**.
+A complete, standards-compliant **EmailAuth - a Secure Email Authentication Gateway with SPF, DKIM, and DMARC1**, **Raw Header Forensic Analyzer (Web UI + CLI)**, and **Controlled Authoritative DNS Zone Environment** implementing **SPF (RFC 7208)**, **DKIM (RFC 6376)**, **DMARC (RFC 7489)**, and **Authentication-Results (RFC 8601)**.
 
 ---
 

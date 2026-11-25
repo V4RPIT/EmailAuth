@@ -1,4 +1,4 @@
-"""Automated test suite for the Secure Email Authentication Gateway."""
+"""Automated test suite for EmailAuth - a Secure Email Authentication Gateway with SPF, DKIM, and DMARC1."""
 
 from __future__ import annotations
 
