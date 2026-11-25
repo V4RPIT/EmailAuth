@@ -1,0 +1,15 @@
+Authentication-Results: mx-gw.securemail.example;
+	spf=pass smtp.mailfrom=relay-mailer.example (client-ip=192.0.2.55);
+	dkim=none;
+	dmarc=fail (p=reject dis=reject) header.from=securemail.example
+Received-SPF: pass (mx-gw.securemail.example: Sender IP 192.0.2.55 authorized by ip4:192.0.2.55.) client-ip=192.0.2.55; envelope-from=bounce@relay-mailer.example;
+Received: from relay-mailer.example ([192.0.2.55]) by mx-gw.securemail.example with ESMTP; Wed, 25 Nov 2026 13:56:59 +0000
+Return-Path: <bounce@relay-mailer.example>
+From: "IT Security (securemail.example)" <security@securemail.example>
+Reply-To: attacker@evil-harvest.example
+To: employee@securemail.example
+Subject: Mandatory Password Reset
+Date: Wed, 25 Nov 2026 12:05:00 +0000
+Message-ID: <phish-004@relay-mailer.example>
+
+Reset your corporate SSO credentials at http://evil-harvest.example/sso

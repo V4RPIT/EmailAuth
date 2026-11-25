@@ -1,0 +1,8 @@
+$ORIGIN securemail.example.
+$TTL 300
+
+_dmarc                       IN TXT "v=DMARC1; p=reject; adkim=s; aspf=s; pct=100; sp=reject; rua=mailto:dmarc-reports@securemail.example; ruf=mailto:dmarc-forensic@securemail.example; fo=1"
+mx-gw                        IN A 198.51.100.10
+@                            IN MX 10 mx-gw.securemail.example
+@                            IN TXT "v=spf1 ip4:198.51.100.10 ip4:203.0.113.0/24 ip6:2001:db8:cafe::/48 -all"
+selector1._domainkey         IN TXT ( "v=DKIM1; k=rsa; h=sha256; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAz6AzXE4UHW2sL6BUTtzXKWA+hc0CO7tkbySx4YKbiUX8/4bqRu2zpWV2L3OdVrK5iAwTNz88rKLyeiEmKQ+yKSGAvgbChnAeWkspkMkpkrfd5n5ejObJ3QfbtPelcvYJFMsqZTrWuuRB1kj9+62xdXDy34PnjfIbeqB2eVd+UTd7NG3fFS" "lAx2oH9HPmUaDV9rUR9h8ZserRqCXSISTC8T5JBhHbDM60K/Uz+T3nAGhPL2L+NYqJAyBwkNPlUI02oIE4O0/TsJ+NoEtlFHvCiZRM3k7Qp3iHRiLyXNAnrCYP8evfvXtXv/Bvsvy+VDJOw/x50gRThHduCdIgZT8nWwIDAQAB" )

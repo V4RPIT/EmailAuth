@@ -1,0 +1,128 @@
+{
+  "provision": {
+    "domain": "securemail.example",
+    "selector": "selector1",
+    "spf_record": "v=spf1 ip4:198.51.100.10 ip4:203.0.113.0/24 ip6:2001:db8:cafe::/48 -all",
+    "dkim_record": "v=DKIM1; k=rsa; h=sha256; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAz6AzXE4UHW2sL6BUTtzXKWA+hc0CO7tkbySx4YKbiUX8/4bqRu2zpWV2L3OdVrK5iAwTNz88rKLyeiEmKQ+yKSGAvgbChnAeWkspkMkpkrfd5n5ejObJ3QfbtPelcvYJFMsqZTrWuuRB1kj9+62xdXDy34PnjfIbeqB2eVd+UTd7NG3fFSlAx2oH9HPmUaDV9rUR9h8ZserRqCXSISTC8T5JBhHbDM60K/Uz+T3nAGhPL2L+NYqJAyBwkNPlUI02oIE4O0/TsJ+NoEtlFHvCiZRM3k7Qp3iHRiLyXNAnrCYP8evfvXtXv/Bvsvy+VDJOw/x50gRThHduCdIgZT8nWwIDAQAB",
+    "dmarc_record": "v=DMARC1; p=none; adkim=r; aspf=r; pct=100; sp=none; rua=mailto:dmarc-reports@securemail.example; ruf=mailto:dmarc-forensic@securemail.example; fo=1",
+    "private_key_path": "C:\\Users\\Arpit\\Downloads\\aicodequesttask\\email_auth_gateway\\keys\\selector1.private.pem",
+    "public_key_path": "C:\\Users\\Arpit\\Downloads\\aicodequesttask\\email_auth_gateway\\keys\\selector1.public.pem",
+    "dns_zone_path": "C:\\Users\\Arpit\\Downloads\\aicodequesttask\\email_auth_gateway\\config\\dns_zones.json",
+    "bind_zone_path": "C:\\Users\\Arpit\\Downloads\\aicodequesttask\\email_auth_gateway\\config\\securemail.example.zone"
+  },
+  "monitoring_phase": {
+    "policy": "none",
+    "messages": [
+      {
+        "sender": "notifications@securemail.example",
+        "spf": "pass",
+        "dkim": "pass",
+        "dmarc": "pass",
+        "disposition": "accept",
+        "spf_aligned": true,
+        "dkim_aligned": true
+      },
+      {
+        "sender": "billing@securemail.example",
+        "spf": "pass",
+        "dkim": "pass",
+        "dmarc": "pass",
+        "disposition": "accept",
+        "spf_aligned": true,
+        "dkim_aligned": true
+      },
+      {
+        "sender": "security@securemail.example",
+        "spf": "pass",
+        "dkim": "pass",
+        "dmarc": "pass",
+        "disposition": "accept",
+        "spf_aligned": true,
+        "dkim_aligned": true
+      }
+    ],
+    "summary": {
+      "domain": "securemail.example",
+      "current_policy": "none",
+      "total_observed": 3,
+      "dmarc_pass_count": 3,
+      "dmarc_fail_count": 0,
+      "spf_aligned_count": 3,
+      "dkim_aligned_count": 3,
+      "pass_rate": 1.0,
+      "ready_for_enforcement": true
+    },
+    "aggregate_xml_report": "C:\\Users\\Arpit\\Downloads\\aicodequesttask\\email_auth_gateway\\reports\\dmarc_aggregate_report.xml"
+  },
+  "policy_transitions": {
+    "quarantine": "v=DMARC1; p=quarantine; adkim=r; aspf=r; pct=100; sp=quarantine; rua=mailto:dmarc-reports@securemail.example; ruf=mailto:dmarc-forensic@securemail.example; fo=1",
+    "reject": "v=DMARC1; p=reject; adkim=s; aspf=s; pct=100; sp=reject; rua=mailto:dmarc-reports@securemail.example; ruf=mailto:dmarc-forensic@securemail.example; fo=1"
+  },
+  "enforcement_scenarios": [
+    {
+      "scenario": "Legitimate Signed & Aligned",
+      "sample_file": "01_legitimate_aligned.eml",
+      "spf_result": "pass",
+      "dkim_result": "pass",
+      "dmarc_result": "pass",
+      "spf_aligned": true,
+      "dkim_aligned": true,
+      "gateway_disposition": "accept",
+      "header_analyzer_verdict": "TRUSTED",
+      "risk_score": 0,
+      "anomalies": []
+    },
+    {
+      "scenario": "Spoofed Unauthorized IP",
+      "sample_file": "02_spoofed_unauthorized_ip.eml",
+      "spf_result": "fail",
+      "dkim_result": "none",
+      "dmarc_result": "fail",
+      "spf_aligned": false,
+      "dkim_aligned": false,
+      "gateway_disposition": "reject",
+      "header_analyzer_verdict": "MALICIOUS_OR_SPOOFED",
+      "risk_score": 80,
+      "anomalies": [
+        "SPF FAIL: Matched '-all' on securemail.example.",
+        "Message is not DKIM-signed.",
+        "DMARC FAIL (REJECT): DMARC FAIL (SPF=fail, aligned=False; DKIM aligned=False). Policy p=reject -> disposition=reject."
+      ]
+    },
+    {
+      "scenario": "Tampered Message Body (Broken DKIM)",
+      "sample_file": "03_tampered_dkim_body.eml",
+      "spf_result": "fail",
+      "dkim_result": "fail",
+      "dmarc_result": "fail",
+      "spf_aligned": false,
+      "dkim_aligned": false,
+      "gateway_disposition": "reject",
+      "header_analyzer_verdict": "MALICIOUS_OR_SPOOFED",
+      "risk_score": 100,
+      "anomalies": [
+        "SPF FAIL: Matched '-all' on securemail.example.",
+        "DKIM FAIL (securemail.example): DKIM body hash mismatch (message body was altered after signing).",
+        "DMARC FAIL (REJECT): DMARC FAIL (SPF=fail, aligned=False; DKIM aligned=False). Policy p=reject -> disposition=reject."
+      ]
+    },
+    {
+      "scenario": "Unaligned Phishing Relay",
+      "sample_file": "04_unaligned_phishing_relay.eml",
+      "spf_result": "pass",
+      "dkim_result": "none",
+      "dmarc_result": "fail",
+      "spf_aligned": false,
+      "dkim_aligned": false,
+      "gateway_disposition": "reject",
+      "header_analyzer_verdict": "MALICIOUS_OR_SPOOFED",
+      "risk_score": 95,
+      "anomalies": [
+        "Envelope Return-Path domain (relay-mailer.example) does not align with From domain (securemail.example).",
+        "Reply-To domain (evil-harvest.example) differs from From domain (securemail.example) \u2014 potential phishing/BEC redirect.",
+        "Message is not DKIM-signed.",
+        "DMARC FAIL (REJECT): DMARC FAIL (SPF=pass, aligned=False; DKIM aligned=False). Policy p=reject -> disposition=reject."
+      ]
+    }
+  ]
+}

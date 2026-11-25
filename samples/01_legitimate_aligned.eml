@@ -1,0 +1,24 @@
+Authentication-Results: mx-gw.securemail.example;
+	spf=pass smtp.mailfrom=securemail.example (client-ip=198.51.100.10);
+	dkim=pass header.d=securemail.example header.s=selector1;
+	dmarc=pass (p=reject dis=accept) header.from=securemail.example
+Received-SPF: pass (mx-gw.securemail.example: Sender IP 198.51.100.10 authorized by ip4:198.51.100.10.) client-ip=198.51.100.10; envelope-from=notifications@securemail.example;
+Received: from mx-gw.securemail.example ([198.51.100.10]) by mx-gw.securemail.example with ESMTP; Wed, 25 Nov 2026 13:56:59 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=securemail.example;
+	s=selector1; h=from:to:subject:date:message-id:mime-version:content-type;
+	bh=YjoiSl/VWi/pTCiQa0vAFRniwfJM+S/zGRLeJ8CsM1E=; b=LgHKuu3GozKugtehr3o3MhB+lakOqb2mdVxHqYqwX0034yT54jl/zeJ+pEl2gEnJ
+	 wiVDbv2s5zNX5ftAg5/qS1T5Ht/OJiWSGxAMU0dKlEEVb/v0TGEy0oCz9M0y5kEi
+	 cQjRw4AULCKNny4sQPwfXOQrKiM73xDLfrV/HnvYUj+zI7fPQW4o0FxX4l414dBC
+	 Dpre5ihB5IlmBOS6tUA5FnFEfufvQDWmyLhH3/sfGyE1oPzO41nZFwYWPT2D8FSV
+	 HBswnsyrCLIjmqSa3668kAYeaWmGWCB4xLBg5JF/1a1e3+9A2blg51HU8TrlTogH
+	 Zd+ESr+yVyMsODgs4PSEHg==
+Return-Path: <notifications@securemail.example>
+From: notifications@securemail.example
+To: alice@partner.example
+Subject: Q4 Security Briefing
+Date: Wed, 25 Nov 2026 13:56:59 GMT
+Message-ID: <179561501955.7492.7463833351581161229@securemail.example>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+
+All systems nominal.

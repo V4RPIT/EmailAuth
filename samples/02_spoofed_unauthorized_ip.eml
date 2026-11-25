@@ -1,0 +1,14 @@
+Authentication-Results: mx-gw.securemail.example;
+	spf=fail smtp.mailfrom=securemail.example (client-ip=192.0.2.99);
+	dkim=none;
+	dmarc=fail (p=reject dis=reject) header.from=securemail.example
+Received-SPF: fail (mx-gw.securemail.example: Matched '-all' on securemail.example.) client-ip=192.0.2.99; envelope-from=ceo@securemail.example;
+Received: from botnet.attacker.example ([192.0.2.99]) by mx-gw.securemail.example with ESMTP; Wed, 25 Nov 2026 13:56:59 +0000
+Return-Path: <ceo@securemail.example>
+From: CEO <ceo@securemail.example>
+To: payroll@securemail.example
+Subject: Urgent Wire Transfer Request
+Date: Wed, 25 Nov 2026 12:00:00 +0000
+Message-ID: <spoof-001@attacker.example>
+
+Please wire $45,000 immediately to account 998877.
